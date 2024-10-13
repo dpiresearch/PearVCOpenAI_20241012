@@ -1,0 +1,12 @@
+            <div className="spacer" />
+            <input
+              type="file"
+              id="fileInput"
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
+            />
+            <Button
+              label="Upload File"
+              onClick={() => document.getElementById('fileInput')?.click()}
+            />
+

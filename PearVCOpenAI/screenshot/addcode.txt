@@ -1,0 +1,41 @@
+async () => {
+  try {
+    // Read the file
+    const fileContent = fs.readFileSync('output.txt', 'utf8');
+
+    // Initialize OpenAI API
+    const configuration = new Configuration({
+      apiKey: apiKey,
+    });
+    const openai = new OpenAIApi(configuration);
+
+    // Call GPT-4 for summarization
+    const response = await openai.createChatCompletion({
+      model: "gpt-4",
+      messages: [
+        {role: "system", content: "You are a helpful assistant that summarizes text."},
+        {role: "user", content: `Please summarize the following text:\n\n${fileContent}`}
+      ],
+    });
+
+    // Get the summary
+    const summary = response.data.choices[0].message?.content;
+
+    // Update the state with the summary
+    setItems(prevItems => [...prevItems, {
+      id: Date.now().toString(),
+      type: 'message',
+      role: 'assistant',
+      formatted: { text: summary || 'No summary available.' }
+    }]);
+
+  } catch (error) {
+    console.error('Error summarizing file:', error);
+    setItems(prevItems => [...prevItems, {
+      id: Date.now().toString(),
+      type: 'message',
+      role: 'assistant',
+      formatted: { text: 'Error summarizing file. Please check the console for details.' }
+    }]);
+  }
+};

@@ -2,9 +2,9 @@
 Experiments in capturing history and exercising the beta openai realtime api
 
 ## Overview
-Using the realtime console that was provided here https://github.com/openai/openai-realtime-console?tab=readme-ov-file#adding-and-using-tools
+Using the realtime console that was provided here: https://github.com/openai/openai-realtime-console?tab=readme-ov-file#adding-and-using-tools
 modify it and add functionality where you can ask about what you've been doing during the day.  There were a ton of problems to overcome and ultimately
-no demo was shown, but learn a ton.
+no demo was shown, but learned a ton.
 
 ## Details
 ### Capturing history
@@ -34,9 +34,8 @@ This starts the python script that takes a screenshot every 10 seconds and calls
 that summary to output.txt along with a timestamp.
 % python shootAndAsk.py
 
-## Coding using cursor
+## Coding using Cursor
 
 Another goal to achieve was to use tools like Cursor and V0 to see what the state of the art of coding was like.  I used
 Cursor for the majority of the work with the Realtime Console.  The conclusion is that it was useful 50% of the time, but
-ultimately it got hung up on a few bugs that it couldn't resolve and I couldn't finish.  I wasn't a React person and the idea
-was to see if the AI could pull me through, which it didn't
+ultimately it got hung up on a few bugs that it couldn't resolve and I couldn't finish.  I wasn't a React person and the idea was to see if the AI could pull me through, which it didn't
